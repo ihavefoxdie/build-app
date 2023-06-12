@@ -1,6 +1,6 @@
 .app{
   background-color: thistle;
-  background-image: url('images/img.png');
+  //background-image: url('images/img.png');
   display: flex;
   justify-content: center;
 
@@ -19,13 +19,13 @@
 
     .montserrat-small-title{
       color: whitesmoke;
-      font-family: "Montserrat Light";
+      font-family: "Montserrat Light", serif;
     }
 
     .build-buttons{
       display: flex;
       flex-direction: column;
-      font-family: "Montserrat Light";
+      font-family: "Montserrat Light", serif;
       font-size: x-small;
       align-self: center;
       min-width: 50px;
@@ -57,7 +57,7 @@
     .logo{
       font-size: 76px;
       color: whitesmoke;
-      font-family: "Montserrat ExtraBold";
+      font-family: "Montserrat ExtraBold", serif;
       margin-bottom: -15px;
       margin-top: 0;
       cursor: pointer;
@@ -103,7 +103,7 @@
     .logo-navbar {
       font-size: 25px;
       color: whitesmoke;
-      font-family: "Montserrat ExtraBold";
+      font-family: "Montserrat ExtraBold", serif;
       cursor: pointer;
     }
 
