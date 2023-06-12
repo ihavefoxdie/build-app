@@ -1,9 +1,9 @@
 import React from 'react';
 
-const WritePost = () => {
+const NewPost = () => {
     return (
         <div>Write a post</div>
     );
 }
 
-export default WritePost;
+export default NewPost;
