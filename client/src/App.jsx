@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createBrowserRouter, Outlet,
   RouterProvider,
@@ -41,24 +42,12 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/",
-    element: <Home/>,
-  },
-  {
     path: '/login',
     element: <Login/>,
   },
   {
     path: '/register',
     element: <Register/>,
-  },
-  {
-    path: "/single-post",
-    element: <SinglePost/>,
-  },
-  {
-    path: "/new-post",
-    element: <NewPost/>,
   },
 ]);
 
