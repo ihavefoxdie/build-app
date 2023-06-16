@@ -7,7 +7,7 @@ let Post = [
             <div className="level">
                 <div className="inter-medium-title">intermediate</div>
             </div>
-            <img className="post-image" src={RandomImage} alt={}/>
+            <img className="post-image" src={RandomImage} alt=""/>
             <div className="title">
                 <div className="inter-xx-large-title">Sample Course</div>
             </div>
