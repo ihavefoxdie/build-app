@@ -11,6 +11,7 @@ import SinglePost from "./pages/SinglePost.jsx";
 import NewPost from "./pages/NewPost.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
+import MyProfile from "./pages/MyProfile.jsx";
 
 const Layout = () => {
   return (
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:"/single-post/:id",
         element: <SinglePost />
+      },
+      {
+        path:"/my-profile",
+        element: <MyProfile/>
       }
     ]
   },
