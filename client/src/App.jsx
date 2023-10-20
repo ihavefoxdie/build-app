@@ -6,12 +6,11 @@ import {
 import Style from "./styles.scss"
 import Register from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
+import Login from "./pages/Login.jsx"
+import MyProfile from "./pages/MyProfile.jsx";
 import SinglePost from "./pages/SinglePost.jsx";
-import NewPost from "./pages/NewPost.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
-import MyProfile from "./pages/MyProfile.jsx";
 
 const Layout = () => {
   return (
@@ -31,10 +30,6 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home />
-      },
-      {
-        path:"/new-post",
-        element: <NewPost />
       },
       {
         path:"/single-post/:id",

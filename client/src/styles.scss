@@ -233,6 +233,7 @@ html, body
           .post
           {
             padding: 0 0 3vh 3vh;
+            height: 95%;
             .build-form{
               .description{
                 -webkit-line-clamp: 2;
@@ -243,7 +244,7 @@ html, body
           {
             max-width: 1vh;
             margin: 0 3vh 2vh 2vh;
-            align-self: end;
+            align-self: self-end;
           }
         }
       }
@@ -303,7 +304,10 @@ html, body
       }
       .post
       {
-        padding: 3vh;
+        margin: 0 0 0 3vh;
+        .build-form{
+          height: 56vh;
+        }
       }
     }
     .build-wrapper {
@@ -318,13 +322,14 @@ html, body
     }
     .post {
       .build-form {
-        max-height: 54vh;
+        max-height: 56vh;
         width: 36vh;
         margin-bottom: 20px;
         .level {
           margin-top: 10px;
           margin-left: 15px;
           .inter-small-title {
+            font-weight: lighter;
           }
         }
         .post-image {
@@ -335,12 +340,24 @@ html, body
           border-radius: 15px;
         }
         .title {
-          //align-items: stretch;
           margin-left: 15px;
+          .inter-xx-large-title
+          {
+            font-size: larger;
+            font-weight: bold;
+            word-wrap: break-word;
+            white-space: initial;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: fade();
+          }
         }
 
         .description {
           margin-left: 15px;
+          font-weight: lighter;
           word-wrap: break-word;
           white-space: initial;
           width: 33vh;
