@@ -57,9 +57,7 @@ const MyProfile = () =>
                   <div className="status-name-block">
                       <div className="montserrat-very-large-bold-title">
                           {users[0]?.login}
-                          <button className="build-buttons">
-                              STATUS
-                          </button>
+                          <button className="build-buttons"> STATUS </button>
                       </div>
                   </div>
                   <div className="info">
@@ -67,19 +65,20 @@ const MyProfile = () =>
                       <div>Phone: </div>
                       <div>Email: {users[0]?.email}</div>
                   </div>
+                  <div className="edit-profile">
+                    <button className="build-buttons">Edit</button>
+                  </div>
               </div>
           </form>
           <form className="courses-card">
               <div className="build-form">
-                  <div className="montserrat-very-large-bold-title" >COURSES</div>
+                  <div className="montserrat-very-large-bold-title">COURSES</div>
                   <div className="build-wrapper" ref={scrollRef}>
                       {posts.map(post => (
                           <div>{post}</div>
                       ))}
                   </div>
-                  <button className="build-buttons">
-                      Create
-                  </button>
+                  <button className="build-buttons">Create</button>
               </div>
           </form>
       </div>
