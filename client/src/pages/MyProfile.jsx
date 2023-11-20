@@ -6,7 +6,6 @@ import axios from "axios";
 
 const MyProfile = () =>
 {
-    const scrollRef = SideScroll();
 
     const [courses, setCourses] = useState([]);
     const [users, setUsers] = useState([]);
@@ -73,15 +72,46 @@ const MyProfile = () =>
           <form className="courses-card">
               <div className="build-form">
                   <div className="montserrat-very-large-bold-title">COURSES</div>
-                  <div className="build-wrapper" ref={scrollRef}>
-                      {posts.map(post => (
-                          <div>{post}</div>
-                      ))}
-                  </div>
-                  <button className="build-buttons">Create</button>
+                  {NewCourses()}
               </div>
           </form>
       </div>
+    );
+}
+
+const Courses = (posts) =>
+{
+    const scrollRef = SideScroll();
+    return(
+        <div>
+        <div className="build-wrapper" ref={scrollRef}>
+            {posts.map(post => (
+                <div>{post}</div>
+            ))}
+        </div>
+        <button className="build-buttons">Create</button>
+        </div>
+    );
+}
+
+const NewCourses = () =>
+{
+    return(
+        <div className="new-course">
+            <div className="title-area">
+                <div className="field-name">
+                    <div className="inter-large-title">Title</div>
+                </div>
+                <input className="course-title" required type="text" placeholder="" />
+            </div>
+            <div className="desc-area">
+                <div className="field-name">
+                    <div className="inter-large-title">Description</div>
+                </div>
+                <textarea className="desc" required cols="20" rows="5" placeholder="" />
+            </div>
+            <button className="build-buttons">Publish</button>
+        </div>
     );
 }
 
