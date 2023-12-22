@@ -6,7 +6,6 @@ import axios from "axios";
 
 const MyProfile = () =>
 {
-
     const [courses, setCourses] = useState([]);
     const [user, setUser] = useState([]);
     const [currentElement, setCurrentElement] = useState(null);
@@ -80,7 +79,7 @@ const MyProfile = () =>
 
     return(
       <div className="profile">
-          <form className="profile-card">
+          <div className="profile-card">
               <div className="build-form">
                 <div className="avatar-status">
                   <img className="avatar" src={RandomImage} alt=""></img>
@@ -100,7 +99,7 @@ const MyProfile = () =>
                     <button className="build-buttons">Edit</button>
                   </div>
               </div>
-          </form>
+          </div>
           <form className="courses-card">
               <div className="build-form">
                   <div className="montserrat-very-large-bold-title">COURSES</div>
