@@ -8,7 +8,6 @@ import Register from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx"
 import MyProfile from "./pages/MyProfile.jsx";
-import SinglePost from "./pages/SinglePost.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -30,10 +29,6 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home />
-      },
-      {
-        path:"/single-post/:id",
-        element: <SinglePost />
       },
       {
         path:"/my-profile",

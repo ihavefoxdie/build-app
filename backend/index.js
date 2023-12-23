@@ -1,6 +1,7 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import easterEgg from "./routes/tester.js";
 
 const app = express();
 
@@ -14,6 +15,8 @@ const database = mysql.createConnection(
 
 app.use(express.json());
 app.use(cors());
+
+app.use("/testing", easterEgg);
 
 app.get("/", (req, res) =>
 {

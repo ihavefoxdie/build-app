@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import RandomImage from "../images/randomImage.png";
 import SideScroll from "../pages/additionalScripts/sideScrollScript.js"
 import Post from "./resourses/PostCardTemplate.jsx";
+import NewCourse from "../pages/NewCourse.jsx";
 import axios from "axios";
 
 const MyProfile = () =>
@@ -23,6 +24,7 @@ const MyProfile = () =>
             }
             catch (error)
             {
+                //alert(error);
                 console.log(error);
             }
         }
@@ -36,6 +38,7 @@ const MyProfile = () =>
             }
             catch (error)
             {
+                //alert(error);
                 console.log(error);
             }
         }
@@ -56,7 +59,7 @@ const MyProfile = () =>
         if(currentElement === 1)
         {
             setCurrentElement(0);
-            setButtonText("Publish");
+            setButtonText("Back");
         }
         else
         {
@@ -72,7 +75,7 @@ const MyProfile = () =>
         }
         catch
         {
-
+            //alert(error);
         }
     }, [])
     console.log(currentElement);
@@ -100,13 +103,15 @@ const MyProfile = () =>
                   </div>
               </div>
           </div>
-          <form className="courses-card">
+          <div className="courses-card">
               <div className="build-form">
-                  <div className="montserrat-very-large-bold-title">COURSES</div>
-                  {elements[currentElement]}
-                  <button className="build-buttons" onClick={() => changeElement()}>{buttonText}</button>
+                <div className="title-area">
+                    <div className="montserrat-very-large-bold-title">COURSES</div>
+                    <button className="build-buttons" onClick={() => changeElement()}>{buttonText}</button>
+                </div>
+                {elements[currentElement]}
               </div>
-          </form>
+          </div>
       </div>
     );
 }
@@ -125,117 +130,6 @@ const Courses = (posts) =>
     );
 }
 
-const NewCourse = () =>
-{
-    const [selectedOption, setSelectedOption] = useState([]);
-    const optionSelectionHandler = (event)  =>
-    {
-        setSelectedOption(event.target.value);
-    }
-    useEffect(() =>
-    {
-        try
-        {
-            optionSelectionHandler();
-        }
-        catch
-        {
 
-        }
-    }, [])
-    //setSelectedOption("intermediate");
-    return(
-        <div className="new-course">
-            <div className="course-creating-items">
-                <div className="title-area">
-                    <div className="field-name">
-                        <div className="inter-large-title">Title</div>
-                    </div>
-                    <input className="course-title" required type="text" placeholder="title" />
-                </div>
-                <div className="length-area">
-                    <div className="course-length-title">
-                        <div className="inter-large-title">Length</div>
-                    </div>
-                    <input className="course-length" required type="text" placeholder="0.0h" />
-                </div>
-                <div className="desc-area">
-                    <div className="field-name">
-                        <div className="inter-large-title">Description</div>
-                    </div>
-                    <textarea className="desc" required cols="20" rows="5" placeholder="description" />
-                </div>
-                <div className="course-details">
-                    <div className="course-image">
-                        <div className="inter-large-title">Image</div>
-                        <img className="selected-image" src={RandomImage} alt=""></img>
-                    </div>
-                    <div className="difficulty">
-                        <div className="inter-large-title">Difficulty</div>
-                            <div className="form-check">
-                                <label>
-                                    <input
-                                    type="radio"
-                                    name="difficulty-option"
-                                    value="beginner"
-                                    checked={selectedOption === "beginner"}
-                                    onChange={e => optionSelectionHandler(e)}
-                                    className="form-check-input"
-                                    />
-                                    beginner
-                                </label>
-                            </div>
-
-                            <div className="form-check">
-                                <label>
-                                    <input
-                                    type="radio"
-                                    name="difficulty-option"
-                                    value="intermediate"
-                                    checked={selectedOption === "intermediate"}
-                                    onChange={e => optionSelectionHandler(e)}
-                                    className="form-check-input"
-                                    />
-                                    intermediate
-                                </label>
-                            </div>
-
-                            <div className="form-check">
-                                <label>
-                                    <input
-                                    type="radio"
-                                    name="difficulty-option"
-                                    value="upper-intermediate"
-                                    checked={selectedOption === "upper-intermediate"}
-                                    onChange={e => optionSelectionHandler(e)}
-                                    className="form-check-input"
-                                    />
-                                    upper-intermediate
-                                </label>
-                            </div>
-
-                            <div className="form-check">
-                                <label>
-                                    <input
-                                    type="radio"
-                                    name="difficulty-option"
-                                    value="advanced"
-                                    checked={selectedOption === "advanced"}
-                                    onChange={e => optionSelectionHandler(e)}
-                                    className="form-check-input"
-                                    />
-                                    advanced
-                                </label>
-                            </div>
-                    </div>
-                    <div className="course-price">
-                        <div className="inter-large-title">Price</div>
-                        <input className="price" required type="numbers" placeholder="" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
 
 export default MyProfile;
