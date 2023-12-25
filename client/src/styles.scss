@@ -257,6 +257,7 @@ html, body
         }
         .build-form
         {
+          //max-width: 85vw;
           width: 100%;
           height: max-content;
           display: flex;
@@ -276,17 +277,18 @@ html, body
           {
             padding: 0 0 3vh 3vh;
             height: 95%;
-            .build-form{
-              .description{
+            .build-form
+            {
+              .description
+              {
                 -webkit-line-clamp: 2;
               }
             }
           }
           .build-buttons
           {
-              //justify-self: right;
-              align-self: flex-end;
-              
+            //justify-self: right;
+            align-self: flex-end;
           }
         }
       }
@@ -471,26 +473,33 @@ html, body
       scroll-behavior: auto;
       border-radius: 15px;
     }
-    .post {
-      .build-form {
+    .post
+    {
+      .build-form
+      {
+        padding: 1vmin;
         max-height: 56vh;
-        width: 36vh;
-        margin-bottom: 20px;
-        .level {
+        max-width: 36vh;
+        //margin-bottom: 20px;
+        //margin-left: 0;
+        .level
+        {
           margin-top: 10px;
           margin-left: 15px;
-          .inter-small-title {
+          .inter-small-title
+          {
             font-weight: lighter;
           }
         }
         .post-image {
           align-self: center;
-          margin-top: 5px;
+          //margin-top: 5px;
           width: max-content;
           height: 25vh;
           border-radius: 15px;
         }
-        .title {
+        .title
+        {
           margin-left: 15px;
           .inter-xx-large-title
           {
