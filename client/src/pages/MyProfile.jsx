@@ -1,16 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import RandomImage from "../images/randomImage.png";
 import SideScroll from "../pages/additionalScripts/sideScrollScript.js"
 import Post from "./resourses/PostCardTemplate.jsx";
 import NewCourse from "../pages/NewCourse.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../context/authContext';
 
 const MyProfile = () =>
 {
     const [courses, setCourses] = useState([]);
-    const [user, setUser] = useState([]);
     const [currentElement, setCurrentElement] = useState(null);
     const [buttonText, setButtonText] = useState("Create");
+    const {currentUser} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() =>
     {
@@ -28,25 +31,10 @@ const MyProfile = () =>
                 console.log(error);
             }
         }
-        const fetchUsers = async ()=>
-        {
-            try
-            {
-                const resultUsers = await axios.get("http://localhost:8800/users");
-                setUser(resultUsers.data);
-                console.log(resultUsers.data);
-            }
-            catch (error)
-            {
-                //alert(error);
-                console.log(error);
-            }
-        }
-        fetchUsers();
+
         fetchCourses();
     }, []);
 
-    //console.log(users[0]);
     let posts = new Array();
     for (let i = 0; i < courses.length; i++)
     {
@@ -75,7 +63,6 @@ const MyProfile = () =>
         }
         catch
         {
-            //alert(error);
         }
     }, [])
     console.log(currentElement);
@@ -88,15 +75,15 @@ const MyProfile = () =>
                   <img className="avatar" src={RandomImage} alt=""></img>
                     <div className="status-name-block">
                         <div className="montserrat-very-large-bold-title">
-                            {user[0]?.login}
-                            <button className="build-buttons"> STATUS </button>
+                            {currentUser.login}
                         </div>
+                        <button className="build-buttons"> STATUS </button>
                     </div>
                   </div>
                   <div className="info">
-                      <div>Name: {user[0]?.login}</div>
-                      <div>Phone: </div>
-                      <div>Email: {user[0]?.email}</div>
+                      <div>Name: {currentUser.login}</div>
+                      {/*<div>Phone: </div>*/}
+                      <div>Email: {currentUser.email}</div>
                   </div>
                   <div className="edit-profile">
                     <button className="build-buttons">Edit</button>

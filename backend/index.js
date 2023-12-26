@@ -30,7 +30,7 @@ app.use(cors(corsOptions));
 app.use("/testing", easterEgg);
 app.use("/api/auth", authRoutes);
 
-app.get("/", (req, res) =>
+app.get("/api", (req, res) =>
 {
    res.json("HELLO!!! THIS IS THE BACKEND!!!");
 });

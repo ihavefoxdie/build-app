@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   createBrowserRouter, Outlet,
   RouterProvider,
@@ -10,6 +10,7 @@ import Login from "./pages/Login.jsx"
 import MyProfile from "./pages/MyProfile.jsx";
 import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
+import { AuthContext } from './context/authContext';
 
 const Layout = () => {
   return (
@@ -46,7 +47,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+const App = () =>
+{
+  const {currentUser} = useContext(AuthContext);
+  if(router.state.location.pathname === '/my-profile' && currentUser === null)
+  {
+    router.state.location.pathname = '/';
+  }
   return (
       <div className="app">
         <div className="container">

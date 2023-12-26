@@ -184,6 +184,7 @@ html, body
         flex: 3;
         .build-form
         {
+          max-width: 450px;
           display: grid;
           grid-template-columns: repeat(2, auto);
           grid-template-rows: 1fr auto auto;
@@ -207,10 +208,18 @@ html, body
             .status-name-block
             {
               display: flex;
+              flex-direction: column;
               .build-buttons
               {
-                min-width: 2vmin;
+                max-width: 100px;
                 background-color: #01ef18;
+                max-height: 4vmax;
+              }
+              .montserrat-very-large-bold-title
+              {
+                align-self: center;
+                font-size: 3vmax;
+                margin: 0;
               }
             }
         }
@@ -421,6 +430,7 @@ html, body
       justify-content: center;
       flex-wrap: wrap;
       height: 100vh;
+      
       .build-buttons
       {
         //width: 60px;
@@ -429,11 +439,14 @@ html, body
       }
       .build-form
       {
+        //width: 50vw;
+        max-width: 600px;
         gap:1.5vmin;
         input
         {
-          min-width: 250px;
+          min-width: 200px;
           width: 40vw;
+          max-width: 575px;
           align-self: center;
         }
       }
