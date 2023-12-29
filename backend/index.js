@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import easterEgg from "./routes/tester.js";
 import authRoutes from "./routes/auth.js";
+import courseRoutes from "./routes/courses.js";
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(cors(corsOptions));
 
 app.use("/testing", easterEgg);
 app.use("/api/auth", authRoutes);
+app.use("/api/courses", courseRoutes);
 
 app.get("/api", (req, res) =>
 {
@@ -59,20 +61,25 @@ app.get("/courses", (req, res) =>
 
 app.post("/addCourse", (req, res) =>
 {
-   const query = "INSERT INTO course_builder.course (`course_name`, `fk_user_id`, `date_created`, `about`, `course_price`) VALUES (?)";
+   const query = "INSERT INTO course_builder.course (`course_name`, `fk_user_id`, `date_created`, `about`, `course_price`, `difficulty`, `length`) VALUES (?)";
    const values =
-       [
-           req.body.course_name,
-           req.body.fk_user_id,
-           req.body.date_created,
-           req.body.about,
-           req.body.course_price,
-       ];
+        [
+           req.body[0],
+           req.body[1],
+           req.body[2],
+           req.body[3],
+           req.body[4],
+           req.body[5],
+           req.body[6]
+        ];
 
-   database.query(query,[values], (err, data) =>
-   {
-       return res.json(data);
-   });
+    
+    database.query(query,[values], (err, data) =>
+    {
+        if(err)
+            return res.json(err);
+        return res.json(data);
+    });
 });
 
 app.listen(8800, () =>

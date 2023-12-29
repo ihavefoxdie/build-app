@@ -157,6 +157,17 @@ html, body
       border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
+    .build-card-white
+    {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5vmax;
+      gap: 1.5vmin;
+      background:whitesmoke;
+      border-radius: 2vh;
+      border: 1px solid whitesmoke;
+    }
+
     input
     {
       font-family: "Consolas";
@@ -178,7 +189,7 @@ html, body
       flex-wrap: wrap;
       justify-content: space-between;
       flex: 1 1 auto;
-      gap: 15vmax;
+      gap: 15vmin;
       .profile-card
       {
         flex: 3;
@@ -258,6 +269,8 @@ html, body
         //max-width: max-content;
         //max-height: fit-content;
         flex-grow: 1;
+        max-width: 646px;
+        
         .title-area
         {
           display: flex;
@@ -277,23 +290,7 @@ html, body
             font-size: 4vh;
             align-self: center;
           }
-          .build-wrapper
-          {
-            width: 100%;
-            border-radius: 0;
-          }
-          .post
-          {
-            padding: 0 0 3vh 3vh;
-            height: 95%;
-            .build-form
-            {
-              .description
-              {
-                -webkit-line-clamp: 2;
-              }
-            }
-          }
+          
           .build-buttons
           {
             //justify-self: right;
@@ -462,12 +459,10 @@ html, body
     .home
     {
       display: flex;
-      //height: 100vh;
       min-height: max-content;
       align-items: center;
-      .build-wrapper{
-        margin: 2vh;
-      }
+      // .build-wrapper{
+      // }
       .post
       {
         margin: 0 0 0 3vh;
@@ -484,7 +479,7 @@ html, body
       overflow-x: auto;
       white-space: nowrap;
       scroll-behavior: auto;
-      border-radius: 15px;
+      border-radius: 2vh;
     }
     .post
     {
@@ -493,6 +488,7 @@ html, body
         padding: 1vmin;
         max-height: 56vh;
         max-width: 36vh;
+        width: fit-content;
         //margin-bottom: 20px;
         //margin-left: 0;
         .level
@@ -507,8 +503,12 @@ html, body
         .post-image {
           align-self: center;
           //margin-top: 5px;
-          width: max-content;
-          height: 25vh;
+          //width: 50vw;
+          max-height: 25vh;
+          max-width: 60vw;
+          //min-height: 5vh;
+          margin-left: 15px;
+          margin-right: 15px;
           border-radius: 15px;
         }
         .title
@@ -530,10 +530,11 @@ html, body
 
         .description {
           margin-left: 15px;
+          margin-right: 15px;
           font-weight: lighter;
           word-wrap: break-word;
           white-space: initial;
-          width: 33vh;
+          max-width: 33vh;
           max-height: 10vh;
           display: -webkit-box;
           -webkit-line-clamp: 4;
@@ -552,6 +553,71 @@ html, body
         }
       }
     }
+
+    .course-card
+    {
+      .build-card-white
+      {
+        padding: 1vmax;
+        display: grid;
+        grid-template-columns: max-content auto auto;
+        .post-image {
+          align-self: center;
+          width: max-content;
+          max-width: 20vw;
+          max-height: 8vh;
+          border-radius: 10px;
+        }
+        .title
+        {
+          .inter-xx-large-title
+          {
+            font-size: large;
+            color: black;
+            font-weight: bold;
+            word-wrap: break-word;
+            white-space: initial;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: fade();
+          }
+        }
+        .description {
+          max-width: 20vw;
+          font-weight: lighter;
+          word-wrap: break-word;
+          white-space: initial;
+          max-height: 10vh;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          .inter-small-title
+          {
+            font-size: smaller;
+            color: black;
+          }
+        }
+        .level
+        {
+          margin-top: 10px;
+          margin-left: 15px;
+          align-self: flex-end;
+          .inter-small-title
+          {
+            font-size: x-small;
+            text-align: end;
+            margin: 0;
+            font-weight: lighter;
+            color: black;
+          }
+        }
+      }
+    }
+
     .build-wrapper::-webkit-scrollbar
     {
       width: 0;

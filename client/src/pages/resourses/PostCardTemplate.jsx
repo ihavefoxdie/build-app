@@ -1,7 +1,7 @@
 import React from "react";
 import RandomImage from "../../images/randomImage.png";
 
-const Card = (lvl, title, desc, price, len) =>
+const Card = (lvl, title, desc, price, len, id) =>
 {
     let Post = [
         <div className="post">
@@ -27,7 +27,8 @@ const Card = (lvl, title, desc, price, len) =>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>,
+        id
     ]
 
     return Post;

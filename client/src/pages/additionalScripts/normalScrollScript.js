@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 
-const sideScroll = () =>
+const Scroll = () =>
 {
     const scrollRef = useRef();
     useEffect(() =>
@@ -8,10 +8,10 @@ const sideScroll = () =>
         const element = scrollRef.current;
         if (element) {
             const wheelListener = e => {
-                if (e.deltaY === 0.0) return;
+                if (e.deltaX === 0.0) return;
                 e.preventDefault();
                 element.scrollTo({
-                    left: element.scrollLeft + e.deltaY,
+                    right: element.scrollDown + e.deltaX * 5,
                 });
             };
             element.addEventListener("wheel", wheelListener);
@@ -21,4 +21,4 @@ const sideScroll = () =>
     return scrollRef;
 }
 
-export default sideScroll;
+export default Scroll;

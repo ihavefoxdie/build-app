@@ -1,10 +1,7 @@
 import React, {useEffect} from 'react';
 import {useState} from "react";
-//import Dummy from "./resourses/dummyPosts.jsx"
 import SideScroll from "../pages/additionalScripts/sideScrollScript.js"
 import axios from "axios";
-
-
 import Post from "../pages/resourses/PostCardTemplate.jsx"
 
 
@@ -18,7 +15,7 @@ const Home = () => {
         {
             try
             {
-                const result = await axios.get("http://localhost:8800/courses");
+                const result = await axios.get("api/courses/all");
                 setCourses(result.data);
                 console.log(result);
             }
@@ -32,13 +29,13 @@ const Home = () => {
     let posts = new Array();
     for (let i = 0; i < courses.length; i++)
     {
-        posts.push(Post(courses[i].difficulty, courses[i].course_name, courses[i].about, courses[i].course_price + " RUB", courses[i].length + " h."));
+        posts.push(Post(courses[i].difficulty, courses[i].course_name, courses[i].about, courses[i].course_price + " RUB", courses[i].length + " h.", courses[i].course_id));
     }
     return(
         <div className="home">
                 <div className="build-wrapper" ref={scrollRef}>
                     {posts.map(post => (
-                        <div>{post}</div>
+                        <div key={post[1]}>{post[0]}</div>
                     ))}
                 </div>
         </div>

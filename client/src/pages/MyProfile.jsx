@@ -1,11 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
 import RandomImage from "../images/randomImage.png";
-import SideScroll from "../pages/additionalScripts/sideScrollScript.js"
-import Post from "./resourses/PostCardTemplate.jsx";
+import Post from "./resourses/courseCard.jsx";
 import NewCourse from "../pages/NewCourse.jsx";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/authContext';
+import NormalScroll from "../pages/additionalScripts/normalScrollScript.js"
 
 const MyProfile = () =>
 {
@@ -13,7 +12,6 @@ const MyProfile = () =>
     const [currentElement, setCurrentElement] = useState(null);
     const [buttonText, setButtonText] = useState("Create");
     const {currentUser} = useContext(AuthContext);
-    const navigate = useNavigate();
 
     useEffect(() =>
     {
@@ -21,24 +19,24 @@ const MyProfile = () =>
         {
             try
             {
-                const resultCourses = await axios.get("http://localhost:8800/courses");
+                const message = [currentUser.user_id];
+                console.log(message);
+                const resultCourses = await axios.post("api/courses/UserCourses", currentUser);
                 setCourses(resultCourses.data);
                 console.log(resultCourses);
             }
             catch (error)
             {
-                //alert(error);
                 console.log(error);
             }
         }
 
         fetchCourses();
     }, []);
-
     let posts = new Array();
     for (let i = 0; i < courses.length; i++)
     {
-        posts.push(Post(courses[i]?.difficulty, courses[i]?.course_name, courses[i]?.about, courses[i]?.course_price + " RUB", courses[i]?.length + " h."));
+        posts.push(Post(courses[i]?.difficulty, courses[i]?.course_name, courses[i]?.about, courses[i].course_id));
     }
     const elements = [NewCourse(), Courses(posts)];
 
@@ -65,7 +63,6 @@ const MyProfile = () =>
         {
         }
     }, [])
-    console.log(currentElement);
 
     return(
       <div className="profile">
@@ -82,12 +79,11 @@ const MyProfile = () =>
                   </div>
                   <div className="info">
                       <div>Name: {currentUser.login}</div>
-                      {/*<div>Phone: </div>*/}
                       <div>Email: {currentUser.email}</div>
                   </div>
-                  <div className="edit-profile">
+                  {/*<div className="edit-profile">
                     <button className="build-buttons">Edit</button>
-                  </div>
+                  </div>*/}
               </div>
           </div>
           <div className="courses-card">
@@ -105,14 +101,15 @@ const MyProfile = () =>
 
 const Courses = (posts) =>
 {
-    const scrollRef = SideScroll();
+    const scrollRef = NormalScroll();
+
     return(
-        <div>
-            <div className="build-wrapper" ref={scrollRef}>
-                {posts.map(post => (
-                    <div>{post}</div>
-                ))}
-            </div>
+        <div name="courses" ref={scrollRef} style={{maxHeight: '40vh', overflowX: 'auto', borderRadius: '2vh' }}>
+            {posts.map(post => 
+                <div key={post[1]} style={{'marginTop': '1vmin'}}>
+                    {post[0]}
+                </div>
+            )}
         </div>
     );
 }
