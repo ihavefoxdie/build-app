@@ -19,8 +19,6 @@ const MyProfile = () =>
         {
             try
             {
-                const message = [currentUser.user_id];
-                console.log(message);
                 const resultCourses = await axios.post("api/courses/UserCourses", currentUser);
                 setCourses(resultCourses.data);
                 console.log(resultCourses);

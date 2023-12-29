@@ -189,13 +189,13 @@ html, body
       flex-wrap: wrap;
       justify-content: space-between;
       flex: 1 1 auto;
-      gap: 15vmin;
+      gap: 10vmin;
       .profile-card
       {
         flex: 3;
         .build-form
         {
-          max-width: 450px;
+          max-width: 300px;
           display: grid;
           grid-template-columns: repeat(2, auto);
           grid-template-rows: 1fr auto auto;
@@ -246,7 +246,7 @@ html, body
             grid-row: 2/3;
             border-radius: 1.5vh;
             font-family: "Inter", serif;
-            font-size: medium;
+            font-size: 15px;
             justify-content: space-evenly;
           }
           .edit-profile
@@ -268,8 +268,8 @@ html, body
         //justify-self: flex-end;
         //max-width: max-content;
         //max-height: fit-content;
-        flex-grow: 1;
-        max-width: 646px;
+        //flex-grow: 1;
+        max-width: 650px;
         
         .title-area
         {
@@ -465,7 +465,7 @@ html, body
       // }
       .post
       {
-        margin: 0 0 0 3vh;
+        margin: 0 2vw 0 0;
         .build-form{
           height: 56vh;
         }
@@ -478,7 +478,7 @@ html, body
       place-self: center;
       overflow-x: auto;
       white-space: nowrap;
-      scroll-behavior: auto;
+      scroll-behavior: smooth;
       border-radius: 2vh;
     }
     .post
@@ -486,8 +486,9 @@ html, body
       .build-form
       {
         padding: 1vmin;
-        max-height: 56vh;
+        max-height: 55vh;
         max-width: 36vh;
+        min-width: 280px;
         width: fit-content;
         //margin-bottom: 20px;
         //margin-left: 0;
@@ -506,6 +507,7 @@ html, body
           //width: 50vw;
           max-height: 25vh;
           max-width: 60vw;
+          min-width: 250px;
           //min-height: 5vh;
           margin-left: 15px;
           margin-right: 15px;

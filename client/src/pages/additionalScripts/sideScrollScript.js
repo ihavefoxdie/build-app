@@ -11,7 +11,7 @@ const sideScroll = () =>
                 if (e.deltaY === 0.0) return;
                 e.preventDefault();
                 element.scrollTo({
-                    left: element.scrollLeft + e.deltaY,
+                    left: element.scrollLeft + e.deltaY * 5,
                 });
             };
             element.addEventListener("wheel", wheelListener);
