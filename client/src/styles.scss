@@ -195,7 +195,7 @@ html, body
         flex: 3;
         .build-form
         {
-          max-width: 300px;
+          max-width: 600px;
           display: grid;
           grid-template-columns: repeat(2, auto);
           grid-template-rows: 1fr auto auto;
@@ -268,8 +268,9 @@ html, body
         //justify-self: flex-end;
         //max-width: max-content;
         //max-height: fit-content;
-        //flex-grow: 1;
+        flex-grow: 1;
         max-width: 650px;
+        //min-width: 30vw;
         
         .title-area
         {
